@@ -1,0 +1,5 @@
+/Users/Zeke/School/CS283/Assignment1/app/build/intermediates/classes/release
+/Users/Zeke/School/CS283/Assignment1/app/build/intermediates/pre-dexed/release/support-annotations-21.0.3-6d52a85379ad787c45b1c5971f484d7d55a739c6.jar
+/Users/Zeke/School/CS283/Assignment1/app/build/intermediates/pre-dexed/release/internal_impl-21.0.3-964a02d67086b080cd36986b2b113831a5835749.jar
+/Users/Zeke/School/CS283/Assignment1/app/build/intermediates/pre-dexed/release/classes-d3660f6b61bfbbaaba65142179617416cbbc4723.jar
+/Users/Zeke/School/CS283/Assignment1/app/build/intermediates/pre-dexed/release/classes-7e87f54f85a5ed92591a783e292986807f10460f.jar

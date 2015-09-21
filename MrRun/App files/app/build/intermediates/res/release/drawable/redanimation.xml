@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:oneshot="false">
+    <item android:drawable="@drawable/redrun1" android:duration="90" />
+    <item android:drawable="@drawable/redrun2" android:duration="90" />
+    <item android:drawable="@drawable/redrun3" android:duration="90" />
+    <item android:drawable="@drawable/redrun4" android:duration="90" />
+    <item android:drawable="@drawable/redrun5" android:duration="90" />
+    <item android:drawable="@drawable/redrun6" android:duration="90" />
+</animation-list><!-- From: file:/Users/Zeke/School/CS283/Assignment1/app/src/main/res/drawable/redanimation.xml -->

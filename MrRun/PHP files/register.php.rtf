@@ -1,0 +1,96 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1265\cocoasubrtf210
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+
+\f0\fs24 \cf0 <?php\
+ \
+require("config.inc.php");\
+ \
+//if posted data is not empty\
+if (!empty($_POST)) \{  \
+    if (empty($_POST['username']) || empty($_POST['password'])) \{\
+ \
+        // JSON response\
+        $response["success"] = 0;\
+        $response["message"] = "Please Enter Both a Username and Password.";\
+ \
+        die(json_encode($response));\
+    \}\
+ \
+     $query        = " SELECT 1 FROM testname WHERE username = :user";\
+    //Updating user\
+    $query_params = array(\
+        ':user' => $_POST['username']\
+    );\
+ \
+    try \{\
+        // Run the query against database table. \
+        $stmt   = $db->prepare($query);\
+        $result = $stmt->execute($query_params);\
+    \}\
+    catch (PDOException $ex) \{\
+\
+        $response["success"] = 0;\
+        $response["message"] = "Database Error1. Please Try Again!";\
+        die(json_encode($response));\
+    \}\
+\
+    //page\
+    $row = $stmt->fetch();\
+    if ($row) \{\
+        $response["success"] = 0;\
+        $response["message"] = "I'm sorry, this username is already in use";\
+        die(json_encode($response));\
+    \}\
+ \
+    //User tokens such as :user and :pass to protect against sql injects, \
+    $query = "INSERT INTO testname ( username, password ) VALUES ( :user, :pass ) ";\
+ \
+    $query_params = array(\
+        ':user' => $_POST['username'],\
+        ':pass' => $_POST['password']\
+    );\
+ \
+    // Create user\
+    try \{\
+        $stmt   = $db->prepare($query);\
+        $result = $stmt->execute($query_params);\
+    \}\
+    catch (PDOException $ex) \{\
+        // For testing, you could use a die and message. \
+        //die("Failed to run query: " . $ex->getMessage());\
+ \
+        //or just use this use this one:\
+        $response["success"] = 0;\
+        $response["message"] = "Database Error2. Please Try Again!";\
+        die(json_encode($response));\
+    \}\
+ \
+   \
+    $response["success"] = 1;\
+    $response["message"] = "Username Successfully Added!";\
+    echo json_encode($response);\
+ \
+    //for a php webservice you could do a simple redirect and die.\
+    //header("Location: login.php"); \
+    //die("Redirecting to login.php");\
+ \
+ \
+\} else \{\
+?>\
+	<h1>Register</h1> \
+	<form action="register.php" method="post"> \
+	    Username:<br /> \
+	    <input type="text" name="username" value="" /> \
+	    <br /><br /> \
+	    Password:<br /> \
+	    <input type="password" name="password" value="" /> \
+	    <br /><br /> \
+	    <input type="submit" value="Register New User" /> \
+	</form>\
+	<?php\
+\}\
+ \
+?>}

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:oneshot="false">
+    <item android:drawable="@drawable/yellowrun1" android:duration="90" />
+    <item android:drawable="@drawable/yellowrun2" android:duration="90" />
+    <item android:drawable="@drawable/yellowrun3" android:duration="90" />
+    <item android:drawable="@drawable/yellowrun4" android:duration="90" />
+    <item android:drawable="@drawable/yellowrun5" android:duration="90" />
+    <item android:drawable="@drawable/yellowrun6" android:duration="90" />
+</animation-list>
